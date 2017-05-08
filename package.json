@@ -1,6 +1,6 @@
 {
   "name": "worldgen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "browserify": "~14.3",
     "grunt": "~1.0.1",
