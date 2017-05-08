@@ -528,8 +528,8 @@ module.exports = {
 },{}],8:[function(require,module,exports){
 module.exports = {
     slowDraw: false,
-    mapWidth: 200,
-    mapHeight: 200,
+    mapWidth: 600,
+    mapHeight: 400,
     zoom: 2,
     waterLevel: 128,
     seed: 12345,
