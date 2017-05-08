@@ -1,0 +1,21 @@
+{
+  "name": "worldgen",
+  "version": "0.0.0",
+  "devDependencies": {
+    "browserify": "~14.3",
+    "grunt": "~1.0.1",
+    "grunt-browserify": "~5.0.0",
+    "grunt-contrib-connect": "~1.0.2",
+    "grunt-contrib-uglify": "~2.3.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-sass": "^2.0.0",
+    "napa": "^2.3.0"
+  },
+  "dependencies": {
+    "dat.gui": "git+https://github.com/dataarts/dat.gui.git",
+    "jquery": "^3.2.1"
+  },
+  "scripts": {
+    "install": "napa josephg/noisejs"
+  }
+}

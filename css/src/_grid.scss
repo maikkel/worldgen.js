@@ -1,0 +1,73 @@
+* {
+  @include box-sizing(border-box);
+}
+
+$pad: $grid-padding;
+
+[class*='grid-'] {
+  position: relative;
+  margin: 0 auto $pad auto;
+  max-width: $grid-width;
+
+  [class*='grid-'] {
+    max-width: none;
+    margin: 0 0 0 0;
+  }
+
+  &:after {
+    /* Or @extend clearfix */
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+[class*='grid-'] [class*='col-'] {
+  position: relative;;
+  float: left;
+  padding-right: $pad;
+  .grid &:last-of-type {
+    padding-right: 0;
+  }
+  .content {
+
+  }
+}
+
+@mixin grid-classes($cols) {
+  @for $i from 1 through $cols {
+    .grid-#{$cols} .col-#{$i} {
+      width: 100% / $cols * $i;
+    }
+  }
+}
+@for $i from 1 through 12 {
+  @include grid-classes($i)
+}
+
+@include small() {
+  [class*='grid-'] [class*='col-'] {
+    width: 100%;
+    padding-right: 0;
+    [class*='grid-'] {
+      padding-right: 0;
+    }
+    &:after {
+      /* Or @extend clearfix */
+      content: "";
+      display: table;
+      clear: both;
+    }
+    margin-bottom: $pad;
+  }
+  [class*='grid-'], [class*='grid-'] [class*='grid-'] {
+    margin-bottom: 0;
+  }
+}
+/* Opt-in outside padding */
+.grid-pad {
+  padding: $pad 0 $pad $pad;
+  [class*='col-']:last-of-type {
+    padding-right: $pad;
+  }
+}
