@@ -30,6 +30,22 @@ module.exports = function (grunt) {
             }
         },
 
+        copy: {
+            main: {
+                files: [
+                    // includes files within path
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['node_modules/noisejs/perlin.js'],
+                        dest: 'js/lib/',
+                        filter: 'isFile'
+                    }
+
+                ]
+            }
+        },
+
         sass: {
             options: {
                 sourceMap: true
@@ -59,7 +75,8 @@ module.exports = function (grunt) {
                     './js/src/**/*.js'
                 ],
                 tasks: [
-                    'browserify'
+                    'browserify',
+                    'copy'
                 ],
                 options: {
                     livereload: true,
@@ -97,6 +114,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('server', [
         'connect:dev',
@@ -106,6 +124,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', [
         'browserify',
-        'sass'
+        'sass',
+        'copy'
     ]);
 };
